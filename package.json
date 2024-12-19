@@ -14,10 +14,14 @@
   "description": "",
   "devDependencies": {
     "css-loader": "^7.1.2",
+    "css-minimizer-webpack-plugin": "^7.0.0",
     "html-loader": "^5.1.0",
     "html-webpack-plugin": "^5.6.3",
-    "style-loader": "^4.0.0",
+    "mini-css-extract-plugin": "^2.9.2",
+    "style-loader": "^3.3.4",
+    "terser-webpack-plugin": "^5.3.11",
     "webpack": "^5.96.1",
+    "webpack-bundle-analyzer": "^4.10.2",
     "webpack-cli": "^5.1.4",
     "webpack-dev-server": "^5.1.0",
     "webpack-merge": "^6.0.1"
