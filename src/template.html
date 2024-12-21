@@ -3,10 +3,50 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>TO-DO LIST</title>
   </head>
   <body>
-    <h1>Welcome to Your Webpack Template</h1>
-    <p>Edit this content in <code>src/template.html</code>.</p>
+    <header>
+      <img class="icon" src="assets/icons/ellipse-outline.svg" alt="" />
+      <h1>To-Do List App</h1>
+      <img
+        class="icon"
+        src="assets/icons/checkmark-done.svg"
+        alt="checkmark-done"
+      />
+    </header>
+
+    <main>
+      <aside>
+        <h2>Projects</h2>
+        <ul id="project-list"></ul>
+        <button id="add-project-btn">+ Add Project</button>
+      </aside>
+
+      <section id="main-content">
+        <h2 id="project-title">Select a Project</h2>
+        <ul id="task-list"></ul>
+
+        <dialog>
+          <form id="add-task-form">
+            <input
+              type="text"
+              id="task-title"
+              placeholder="Task Title"
+              required
+            />
+            <textarea id="task-desc" placeholder="Task Description"></textarea>
+            <input type="date" id="task-due-date" />
+            <select id="task-priority">
+              <option value="low">Low</option>
+              <option value="medium">Medium</option>
+              <option value="high">High</option>
+            </select>
+            <button type="submit">Add Task</button>
+          </form>
+        </dialog>
+      </section>
+    </main>
+    <div class="footer"></div>
   </body>
 </html>
