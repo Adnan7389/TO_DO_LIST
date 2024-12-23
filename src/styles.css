@@ -5,16 +5,25 @@
   box-sizing: border-box;
 }
 html {
+  height: 100%;
   font-size: 62.5%;
   overflow-x: hidden;
 }
 
 body {
+  display: flex;
+  flex-direction: column;
   font-family: "Rubik", sans-serif;
   line-height: 1;
+  height: 100%;
   font-weight: 400;
   color: #555;
   overflow-x: hidden;
+}
+
+h2 {
+  font-size: 2rem;
+  padding-bottom: 1.2rem;
 }
 
 header {
@@ -35,5 +44,71 @@ header {
 }
 
 main {
+  flex: 1;
   display: grid;
+  grid-template-columns: 1fr 3fr;
+}
+
+aside {
+  padding: 1.6rem 0 0 2rem;
+  background: #e4dad2;
+}
+
+.project_list {
+  height: 4rem;
+  width: 100%;
+  display: block;
+  line-height: 4rem;
+  padding: 0.4rem;
+  font-size: 1.6rem;
+  cursor: pointer;
+}
+
+#add-project-btn {
+  margin-top: 1rem;
+  background-color: #4caf50; /* Green */
+  color: white;
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  font-size: 1.6rem;
+}
+
+#add-project-btn:hover {
+  background-color: #45a049;
+}
+
+#project-form {
+  margin-top: 1rem;
+}
+
+#project-form input {
+  padding: 0.8rem;
+  font-size: 1.6rem;
+  margin-right: 0.5rem;
+}
+
+#project-form button {
+  background-color: #4caf50;
+  color: white;
+  padding: 0.8rem 1.2rem;
+  margin-top: 0.8rem;
+  border: none;
+  cursor: pointer;
+  border-radius: 0.5rem;
+}
+
+/* main section */
+#main-content {
+  padding: 1.6rem 0 0 2rem;
+}
+
+.footer {
+  height: 5rem;
+  font-size: 1.6rem;
+  background: #555;
+  color: white;
+  text-align: center;
+  line-height: 5rem;
 }

@@ -7,7 +7,11 @@
   </head>
   <body>
     <header>
-      <img class="icon" src="assets/icons/ellipse-outline.svg" alt="" />
+      <img
+        class="icon"
+        src="assets/icons/ellipse-outline.svg"
+        alt="ellipse-outline"
+      />
       <h1>To-Do List App</h1>
       <img
         class="icon"
@@ -19,8 +23,20 @@
     <main>
       <aside>
         <h2>Projects</h2>
+
         <ul id="project-list"></ul>
+
         <button id="add-project-btn">+ Add Project</button>
+
+        <form id="project-form" style="display: none">
+          <input
+            type="text"
+            id="project-name"
+            placeholder="Project Name"
+            required
+          />
+          <button type="submit">Add Project</button>
+        </form>
       </aside>
 
       <section id="main-content">
@@ -36,7 +52,7 @@
               required
             />
             <textarea id="task-desc" placeholder="Task Description"></textarea>
-            <input type="date" id="task-due-date" />
+            <input type="date" id="task-due-date" required />
             <select id="task-priority">
               <option value="low">Low</option>
               <option value="medium">Medium</option>
@@ -47,6 +63,6 @@
         </dialog>
       </section>
     </main>
-    <div class="footer"></div>
+    <div class="footer"><p>&copy; 2024 To-Do List App</p></div>
   </body>
 </html>

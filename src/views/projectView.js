@@ -4,7 +4,8 @@ class ProjectView {
     projectContainer.innerHTML = '';
 
     projects.forEach(project => {
-      const projectElement = document.createElement('div');
+      const projectElement = document.createElement('button');
+      projectElement.classList.add("project_list")
       projectElement.textContent = project.name;
       projectContainer.appendChild(projectElement);
     });
