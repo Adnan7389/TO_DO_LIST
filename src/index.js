@@ -15,8 +15,7 @@ document.addEventListener("DOMContentLoaded", () => {
   if (storedProjects.length > 0) {
     Controller.Projects = storedProjects;
   } else {
-    Controller.addProject("Work");
-    Controller.addProject("Personal");
+    Controller.Projects = [];
   }
 
   ProjectView.renderProjects(Controller.Projects);
