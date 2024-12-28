@@ -39,12 +39,14 @@
         </form>
       </aside>
 
-      <section id="main-content">
-        <h2 id="project-title">Select a Project</h2>
+      <section id="task-section">
+        <h2 id="current-project-name"></h2>
         <ul id="task-list"></ul>
+        <button id="add-task-btn">Add Todo</button>
 
-        <dialog>
-          <form id="add-task-form">
+        <dialog id="add-task-dialog" backdrop>
+          <form method="dialog">
+            <h2>Add Task</h2>
             <input
               type="text"
               id="task-title"
@@ -52,13 +54,36 @@
               required
             />
             <textarea id="task-desc" placeholder="Task Description"></textarea>
-            <input type="date" id="task-due-date" required />
+            <input type="date" id="task-due-date" />
             <select id="task-priority">
               <option value="low">Low</option>
               <option value="medium">Medium</option>
               <option value="high">High</option>
             </select>
-            <button type="submit">Add Task</button>
+            <button value="cancel" id="cancel-add-task">Cancel</button>
+            <button type="submit" id="add-task">Add Task</button>
+          </form>
+        </dialog>
+        <dialog id="edit-task-dialog">
+          <form method="dialog" id="edit-task-form">
+            <input
+              type="text"
+              id="edit-task-title"
+              placeholder="Task Title"
+              required
+            />
+            <textarea
+              id="edit-task-desc"
+              placeholder="Task Description"
+            ></textarea>
+            <input type="date" id="edit-task-due-date" />
+            <select id="edit-task-priority">
+              <option value="low">Low</option>
+              <option value="medium">Medium</option>
+              <option value="high">High</option>
+            </select>
+            <button type="submit" id="save-edit-task">Update Task</button>
+            <button type="button" id="cancel-edit-task">Cancel</button>
           </form>
         </dialog>
       </section>

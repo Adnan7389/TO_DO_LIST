@@ -1,4 +1,4 @@
-class project {
+class Project {
   constructor(name) {
     this.name = name;
     this.tasks = [];
@@ -9,8 +9,10 @@ class project {
   }
 
   deleteTask(taskId) {
-    this.tasks = this.tasks.filter(task => taskid !== taskId)
+    console.log("Before Deletion:", this.tasks);
+    this.tasks = this.tasks.filter(task => task.id !== taskId);
+    console.log("After Deletion:", this.tasks);
   }
 }
 
-export default project;
+export default Project;

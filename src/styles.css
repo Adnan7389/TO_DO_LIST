@@ -24,6 +24,7 @@ body {
 h2 {
   font-size: 2rem;
   padding-bottom: 1.2rem;
+  padding-left: 1rem;
 }
 
 header {
@@ -34,7 +35,7 @@ header {
   background-color: #fdf2e9;
 
   height: 9.6rem;
-  padding: 0rem 4.8rem;
+  padding: 2rem 4.8rem;
   font-size: 2.4rem;
 }
 
@@ -50,22 +51,39 @@ main {
 }
 
 aside {
-  padding: 1.6rem 0 0 2rem;
+  padding: 1.6rem 0 0 0;
   background: #e4dad2;
 }
 
-.project_list {
+.project-item {
   height: 4rem;
   width: 100%;
-  display: block;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   line-height: 4rem;
-  padding: 0.4rem;
+  padding: 0.4rem 0.4rem 0.4rem 1.6rem;
   font-size: 1.6rem;
   cursor: pointer;
 }
 
+.delete-project-btn {
+  display: none;
+  background-color: red;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  font-size: 14px;
+}
+.project-item.selected {
+  background-color: #d3f9d8; /* Light green background for selected project */
+  border-radius: 5px; /* Optional: Rounded corners */
+}
+
 #add-project-btn {
   margin-top: 1rem;
+  margin-left: 1rem;
   background-color: #4caf50; /* Green */
   color: white;
   padding: 1rem 2rem;
@@ -99,9 +117,212 @@ aside {
   border-radius: 0.5rem;
 }
 
-/* main section */
-#main-content {
-  padding: 1.6rem 0 0 2rem;
+/* task section */
+#task-section {
+  /* margin: 20px auto; */
+  /* max-width: 600px; */
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #fdfdfd;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#current-project-name {
+  font-size: 2rem;
+  margin-bottom: 15px;
+  text-align: center;
+  color: #333;
+}
+
+#task-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+#task-form input {
+  padding: 0.8rem;
+  font-size: 1.6rem;
+  margin-right: 0.5rem;
+}
+
+#task-form button {
+  background-color: #4caf50;
+  color: white;
+  padding: 0.8rem 1.2rem;
+  margin-top: 0.8rem;
+  border: none;
+  cursor: pointer;
+  border-radius: 0.5rem;
+}
+#task-list {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+#add-task-form input,
+#add-task-form textarea,
+#add-task-form select,
+#add-task-form button {
+  padding: 1rem;
+  font-size: 1rem;
+  border: 1rem solid #ccc;
+  border-radius: 0.5rem;
+}
+
+#add-task-form textarea {
+  resize: vertical;
+}
+
+#add-task-form button {
+  background-color: #28a745;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+#add-task-form button:hover {
+  background-color: #218838;
+}
+
+.task-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  font-size: 1.4rem;
+  border-left: 0.5rem solid #007bff;
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+  margin-bottom: 1rem;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+#add-task-btn {
+  margin-top: 1rem;
+  margin-left: 1rem;
+  background-color: #4caf50; /* Green */
+  color: white;
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  font-size: 1.6rem;
+}
+
+#add-task-btn:hover {
+  background-color: #45a049;
+}
+
+#task-list {
+  margin-top: 20px;
+}
+
+.task-item {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-left: 5px solid #007bff;
+  border-radius: 5px;
+  padding: 15px;
+  margin-bottom: 10px;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.task-item:hover {
+  transform: scale(1.02);
+  background-color: #f8f9fa;
+}
+
+/* Priority-Based Styling */
+.priority-high {
+  border-left-color: red;
+}
+
+.priority-medium {
+  border-left-color: orange;
+}
+
+.priority-low {
+  border-left-color: green;
+}
+
+/* Task Content */
+.task-item strong {
+  font-size: 1.2rem;
+}
+
+.task-item p {
+  font-size: 1.1rem;
+  color: #555;
+  margin: 0;
+}
+
+.task-item small {
+  font-size: 1rem;
+  color: #888;
+}
+
+.task-item .delete-task-btn {
+  align-self: flex-end;
+  padding: 5px 10px;
+  color: white;
+  background-color: red;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.task-item .delete-task-btn:hover {
+  background-color: darkred;
+}
+
+dialog {
+  width: 400px;
+  /* display: flex; */
+  max-width: 90%; /* Ensure responsiveness on smaller screens */
+  padding: 20px; /* Add some padding for inner spacing */
+  max-width: 90%;
+  padding: 20px;
+  margin: auto;
+  border: none;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  font-family: Arial, sans-serif;
+}
+
+dialog::backdrop {
+  background: rgba(0, 0, 0, 0.5);
+}
+
+dialog[open] {
+  display: flex; /* Center content within the dialog */
+  flex-direction: column; /* Align content vertically */
+  align-items: center;
+  justify-content: center;
+}
+
+button {
+  padding: 8px 12px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button#save-edit-task {
+  background-color: #4caf50;
+  color: white;
+}
+
+button#cancel-edit-task {
+  background-color: #f44336;
+  color: white;
 }
 
 .footer {
