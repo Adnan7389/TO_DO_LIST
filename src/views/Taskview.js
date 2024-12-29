@@ -14,7 +14,6 @@ class TaskView {
       return;
     }
 
-    console.log("Rendering Task IDs:", project.tasks.map(task => task.id));
 
     if (!Array.isArray(tasks)) {
       console.error("Expected tasks to be an array, but got:", tasks);
@@ -24,12 +23,17 @@ class TaskView {
     tasks.forEach((task) => {
       const taskElement = document.createElement("div");
       taskElement.classList.add("task-item");
+
+      if (task.completed) {
+        taskElement.classList.add("completed-task");
+      }
       taskElement.innerHTML = `
         <strong>${task.title}</strong>
         <p>${task.description || "No description provided"}</p>
         <p>Due: ${task.dueDate || "No due date"}</p>
         <small>Priority: ${task.priority}</small>
         <button class="edit-task-btn" data-id="${task.id}">Edit</button>
+        <button class="toggle-completion" data-id="${task.id}">${task.completed ? "Mark as Incomplete" : "Mark as Complete"}</button>
         <button class="delete-task-btn" data-id="${task.id}">Delete</button>
       `;
 

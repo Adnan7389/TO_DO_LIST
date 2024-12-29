@@ -4,6 +4,7 @@ import TaskController from "./controllers/taskController.js";
 import ProjectView from "./views/projectView.js";
 import Storage from "./utils/storage.js";
 import TaskView from "./views/Taskview.js";
+import task from "./models/Task.js";
 
 document.addEventListener("DOMContentLoaded", () => {
 
@@ -157,8 +158,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (event.target.classList.contains("project-item")) {
       const projectItem = event.target.closest(".project-item");
       const projectName = projectItem.childNodes[0].textContent.trim();
-      // const projectName = event.target.textContent.trim();
-      console.log(projectName);
+
       const selectedProject = Controller.Projects.find(
         (project) => project.name === projectName
       );
@@ -173,6 +173,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
 
         event.target.classList.add("selected");
+        toggleAddToDoButton();
 
       } else {
         console.error("Selected project not found!");
@@ -268,7 +269,7 @@ document.addEventListener("DOMContentLoaded", () => {
         showTaskFormButton.style.display = "none";
 
         editDialog.setAttribute("data-task-id", taskId);
-        editDialog.showModal(); // Open the dialog
+        editDialog.showModal();
       }
     }
   });
@@ -302,4 +303,23 @@ document.addEventListener("DOMContentLoaded", () => {
     showTaskFormButton.style.display = "block";
   });
 
+  document.addEventListener("click", (event) => {
+    if (event.target.classList.contains("toggle-completion")) {
+      const taskId = event.target.getAttribute("data-id");
+      console.log("Task ID to complete:", taskId);
+      console.log("current", currentProject);
+
+      if (currentProject) {
+        const taskController = new TaskController(currentProject);
+
+        taskController.toggleTaskCompletion(taskId);
+
+        Storage.saveProjects(Controller.Projects);
+
+        TaskView.renderTask(currentProject.tasks, currentProject);
+      } else {
+        console.error("No project selected!");
+      }
+    }
+  });
 });

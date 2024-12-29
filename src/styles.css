@@ -326,6 +326,12 @@ button#cancel-edit-task {
   color: white;
 }
 
+.completed-task {
+  text-decoration: line-through;
+  color: gray;
+  opacity: 0.7;
+}
+
 .footer {
   height: 5rem;
   font-size: 1.6rem;

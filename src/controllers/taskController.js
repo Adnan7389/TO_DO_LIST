@@ -1,9 +1,8 @@
 import Task from '../models/Task.js';
 // import project from '../models/project.js';
 const generateId = () => "_" + crypto.randomUUID();
-console.log("Generated ID Example:", generateId());
 
-class taskController {
+class TaskController {
   constructor(project) {
     this.project = project;
   }
@@ -19,7 +18,6 @@ class taskController {
     console.log("New Task Object:", newTask);
 
   }
-
 
   deleteTask(taskId) {
     this.project.deleteTask(taskId);
@@ -38,6 +36,13 @@ class taskController {
     taskToEdit.dueDate = updatedData.dueDate || taskToEdit.dueDate;
     taskToEdit.priority = updatedData.priority || taskToEdit.priority;
   }
+
+  toggleTaskCompletion(taskId) {
+    const task = this.project.tasks.find((task) => task.id === taskId);
+    if (task) {
+      task.completed = !task.completed;
+    }
+  }
 }
 
-export default taskController;
+export default TaskController;
